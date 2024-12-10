@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Check out the repository
+      # Step 1: Checkout the repository
       - name: Checkout code
         uses: actions/checkout@v4
 
@@ -23,5 +23,5 @@ jobs:
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'team-website-app' # Replace with your Azure Web App name
+          app-name: 'team-website-app'  # Replace with your Azure Web App name
           package: '.'

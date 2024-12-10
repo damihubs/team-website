@@ -1,21 +1,31 @@
-name: Deploy to Azure Web App
+name: Deploy Static Website to Azure Web App
+
 on:
   push:
-    branches: [ main ]
- 
+    branches:
+      - main
+  workflow_dispatch:
+
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
- 
+
     steps:
+      # Step 1: Check out the repository
       - name: Checkout code
-        uses: actions/checkout@v2
- 
-      # If you have a build step, add it here. For static pages, no build step is necessary.
- 
-      - name: Deploy to Azure WebApp
-        uses: azure/webapps-deploy@v2
+        uses: actions/checkout@v4
+
+      # Step 2: Login to Azure
+      - name: Login to Azure
+        uses: azure/login@v2
         with:
-          app-name: 'team-website-app' # Replace with your Azure Web App name
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      # Step 3: Deploy to Azure Web App
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: 'team-website-app'  # Replace with your Azure Web App name
           package: '.'

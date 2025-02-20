@@ -6,7 +6,7 @@
 # **OBJECTIVE OF THE EXERCISE**  
 This exercise is designed to provide hands-on experience in **collaborative web development** and **automated deployment** using GitHub and Azure. By the end of the exercise, participants will have collectively built and deployed a multi-page website to an Azure Web App, all while working entirely within GitHub’s web interface.  
 
-This approach eliminates the need for local Git commands, ensuring accessibility and simplicity for all contributors.
+
 
 ---
 
@@ -68,4 +68,4 @@ By completing this exercise, participants will develop essential skills in **ver
 
 ---
 
-By following this structured approach, the team will collaboratively build and deploy a fully functional website while gaining valuable experience in modern development workflows.
+
